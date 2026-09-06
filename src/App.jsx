@@ -38,7 +38,7 @@ function GameCard({ game }) {
               <p>⭐ {game.rating}</p>
 
               {/* Display the game URL as a hyperlink */}
-              <a href={game.url} target="_blank" rel="noopener noreferrer">
+              <a href={game.url} target="_blank">
                 link
               </a>
             </div>
@@ -252,16 +252,7 @@ function AddGameForm({ games, setGames }) {
               type="file"
               className="form-control"
               accept="image/*"
-              onChange={(event) => {
-                // Get the selected file
-                const file = event.target.files[0];
-
-                // Check if a file was selected
-                if (file) {
-                  // Create a temporary URL for the image
-                  setImage(URL.createObjectURL(file));
-                }
-              }}
+              onChange={(event) => setImage(event.target.value)}
             />
           </div>
         </div>
