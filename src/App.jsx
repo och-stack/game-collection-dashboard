@@ -65,13 +65,10 @@ function CategoryList({ selectedCategory, setSelectedCategory }) {
 // ADD GAME FORM
 // Create a component for adding a new game
 function AddGameForm({ games, setGames }) {
-  // Store the game name
+  // Store the game name, category, rating and image
   const [name, setName] = useState("");
-  // Store the game category
   const [category, setCategory] = useState("");
-  // Store the game rating
   const [rating, setRating] = useState("");
-  // Store the game image
   const [image, setImage] = useState("");
   // Create the function to add a game
   function addGame(event) {
@@ -88,24 +85,18 @@ function AddGameForm({ games, setGames }) {
     const newGame = {
       // Give the game a unique ID
       id: Date.now(),
-      // Save the game name
+      // Save the game name, category, rating, image
       name: name,
-      // Save the game category
       category: category,
-      // Save the game rating
       rating: rating,
-      // Save the game image
       image: image,
     };
     // Add the new game to the games list
     setGames([...games, newGame]);
-    // Clear the game name
+    // Clear the game name, category, rating, image
     setName("");
-    // Clear the category
     setCategory("");
-    // Clear the rating
     setRating("");
-    // Clear the image
     setImage("");
   }
   // Return the add game form
