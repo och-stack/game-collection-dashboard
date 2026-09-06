@@ -232,7 +232,7 @@ function AddGameForm({ games, setGames }) {
 function App() {
   // Set website title and favicon
   useEffect(() => {
-    document.title = "Loadong Room";
+    document.title = "Loading Room";
 
     const favicon = document.createElement("link");
     favicon.rel = "icon";
