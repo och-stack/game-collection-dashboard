@@ -1,47 +1,32 @@
 // Import useState so we can store changing data
-import { useState } from "react";
-
-// Import the CSS file for this app
+// Import useEffect to run code after the component renders or when data changes
+import { useEffect, useState } from "react";
 import "./App.css";
 
 // GAME CARD
 // Create a component that displays one game
 function GameCard({ game }) {
-  // Return the HTML structure for one game
   return (
-    /* Create the outer Bootstrap column */
     <div className="col-12 mb-4">
-      {/* Create the game card */}
       <div className="card shadow-sm">
-        {/* Create a Bootstrap row */}
         <div className="row g-0">
-          {/* Create the column for the game image */}
+
+          {/* Game image */}
           <div className="col-3">
-            {/* Display the game image */}
-            <img src={game.image} className="img-fluid w-100 h-100" alt={game.name} />
+            <img
+              src={game.image}
+              className="img-fluid w-100 h-100"
+              alt={game.name}
+            />
           </div>
 
-          {/* Create the column for game information */}
-          <div className="col-9">
-            {/* Create the card content area */}
-            <div className="card-body">
-              {/* Display the game name */}
-              <h3 className="h5 fw-bold">{game.name}</h3>
-
-              {/* Display the game category */}
-              <p className="text-secondary">{game.category}</p>
-
-              {/* Display the game description */}
-              <p>{game.description}</p>
-
-              {/* Display the game rating */}
-              <p>⭐ {game.rating}</p>
-
-              {/* Display the game URL as a hyperlink */}
-              <a href={game.url} target="_blank">
-                link
-              </a>
-            </div>
+          {/* Game information */}
+          <div className="col-9 p-3">
+            <h3 className="h5 fw-bold">{game.name}</h3>
+            <p className="text-secondary">{game.category}</p>
+            <p>{game.description}</p>
+            <p>⭐ {game.rating}</p>
+            <a href={game.url} target="_blank">link</a>
           </div>
         </div>
       </div>
@@ -89,22 +74,12 @@ function CategoryList({ selectedCategory, setSelectedCategory }) {
 // ADD GAME FORM
 // Create a component for adding a new game
 function AddGameForm({ games, setGames }) {
-  // Store the game name entered by the user
+  // Store the game information entered by the user
   const [name, setName] = useState("");
-
-  // Store the game description entered by the user
   const [description, setDescription] = useState("");
-
-  // Store the selected category
   const [category, setCategory] = useState("");
-
-  // Store the rating entered by the user
   const [rating, setRating] = useState("");
-
-  // Store the uploaded image URL
   const [image, setImage] = useState("");
-
-  // Store the game website URL
   const [url, setUrl] = useState("");
 
   // Create a function that runs when the form is submitted
@@ -125,45 +100,23 @@ function AddGameForm({ games, setGames }) {
     const newGame = {
       // Give the game a unique ID
       id: Date.now(),
-
-      // Store the game name
+      // Store the game information
       name: name,
-
-      // Store the game description
       description: description,
-
-      // Store the game category
       category: category,
-
-      // Store the game rating
       rating: rating,
-
-      // Store the game image
       image: image,
-
-      // Store the game website URL
       url: url
     };
 
     // Add the new game to the existing games array
     setGames([...games, newGame]);
-
-    // Clear the game name input
+    // Clear the game information
     setName("");
-
-    // Clear the description input
     setDescription("");
-
-    // Clear the category input
     setCategory("");
-
-    // Clear the rating input
     setRating("");
-
-    // Clear the image input state
     setImage("");
-
-    // Clear the URL input
     setUrl("");
   }
 
@@ -171,19 +124,12 @@ function AddGameForm({ games, setGames }) {
   return (
     /* Create the form card */
     <div className="card shadow-sm p-3">
-      {/* Display the form title */}
       <h2 className="h4 fw-bold mb-4">Add New Game</h2>
-
       {/* Create the form and run addGame when submitted */}
       <form onSubmit={addGame}>
-        {/* Create the game name row */}
         <div className="row mb-3">
-          {/* Display the game name label */}
           <label className="col-4 col-form-label">Game Name</label>
-
-          {/* Create the input column */}
           <div className="col-8">
-            {/* Create the game name input */}
             <input
               type="text"
               className="form-control"
@@ -196,10 +142,7 @@ function AddGameForm({ games, setGames }) {
 
         {/* Create the description row */}
         <div className="row mb-3">
-          {/* Display the description label */}
           <label className="col-4 col-form-label">Description</label>
-
-          {/* Create the input column */}
           <div className="col-8">
             {/* Create the description textarea */}
             <textarea
@@ -214,10 +157,7 @@ function AddGameForm({ games, setGames }) {
 
         {/* Create the category row */}
         <div className="row mb-3">
-          {/* Display the category label */}
           <label className="col-4 col-form-label">Category</label>
-
-          {/* Create the select column */}
           <div className="col-8">
             {/* Create the category dropdown */}
             <select
@@ -227,14 +167,8 @@ function AddGameForm({ games, setGames }) {
             >
               {/* Create the default option */}
               <option value="">Select category</option>
-
-              {/* Create the Brain option */}
               <option value="Brain">Brain</option>
-
-              {/* Create the Speed option */}
               <option value="Speed">Speed</option>
-
-              {/* Create the Leisure option */}
               <option value="Leisure">Leisure</option>
             </select>
           </div>
@@ -242,12 +176,8 @@ function AddGameForm({ games, setGames }) {
 
         {/* Create the image row */}
         <div className="row mb-3">
-          {/* Display the image label */}
           <label className="col-4 col-form-label">Image</label>
-
-          {/* Create the input column */}
           <div className="col-8">
-            {/* Create the image upload input */}
             <input
               type="file"
               className="form-control"
@@ -259,12 +189,8 @@ function AddGameForm({ games, setGames }) {
 
         {/* Create the rating row */}
         <div className="row mb-3">
-          {/* Display the rating label */}
           <label className="col-4 col-form-label">Rating</label>
-
-          {/* Create the input column */}
           <div className="col-8">
-            {/* Create the rating input */}
             <input
               type="number"
               className="form-control"
@@ -280,12 +206,8 @@ function AddGameForm({ games, setGames }) {
 
         {/* Create the game URL row */}
         <div className="row mb-3">
-          {/* Display the URL label */}
           <label className="col-4 col-form-label">Game URL</label>
-
-          {/* Create the input column */}
           <div className="col-8">
-            {/* Create the URL input */}
             <input
               type="url"
               className="form-control"
@@ -308,6 +230,16 @@ function AddGameForm({ games, setGames }) {
 // MAIN APP
 // Create the main App component
 function App() {
+  // Set website title and favicon
+  useEffect(() => {
+    document.title = "Loadong Room";
+
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.href = "/favicon.png";
+    document.head.appendChild(favicon);
+  }, []);
+
   // Create the games state and store the initial games
   const [games, setGames] = useState([
     // Create the first game
@@ -356,20 +288,15 @@ function App() {
   // Return the main application layout
   return (
     <>
-      {/* Create the page header */}
       <header className="text-center mt-5 mb-4">
-        {/* Display the website title */}
-        <h1 className="fw-bold">Classic Replay</h1>
-
-        {/* Display the website description */}
-        <p className="text-secondary">Old school games for your modern laptop.</p>
+        <img src="favi.png" alt="favicon" />
+        <h1 className="fw-bold">Loading Room</h1>
+        <p className="text-secondary">Your next game is loading.</p>
       </header>
 
       {/* Create the main Bootstrap container */}
       <main className="container-fluid px-4">
-        {/* Create the main row */}
         <div className="row g-4">
-
           {/* Create the left sidebar */}
           <aside className="col-12 col-lg-3">
 
@@ -377,8 +304,6 @@ function App() {
             <div className="card shadow-sm p-3 mb-4">
               {/* Display the number of filtered games */}
               <h2 className="fw-bold mb-0">{filteredGames.length}</h2>
-
-              {/* Display the text */}
               <p className="text-secondary mb-0">Games Available</p>
             </div>
 
@@ -391,26 +316,20 @@ function App() {
 
           {/* Create the middle section for games */}
           <section className="col-8 col-lg-6">
-
-            {/* Create a row for the game cards */}
             <div className="row">
-
               {/* Go through the filtered games */}
               {/* Create one GameCard for every game */}
               {filteredGames.map((game) => (
                 /* Send the game information to GameCard */
                 <GameCard key={game.id} game={game} />
               ))}
-
             </div>
           </section>
 
           {/* Create the right sidebar */}
           <aside className="col-12 col-lg-3">
-
             {/* Display the Add Game Form */}
             <AddGameForm games={games} setGames={setGames} />
-
           </aside>
         </div>
       </main>
