@@ -14,7 +14,7 @@ function GameCard({ game }) {
             {/* Display the game image */}
             <img
               src={game.image}
-              className="img-fluid object-fit-cover"
+              className="img-fluid w-100 h-100"
               alt={game.name}
             />
           </div>
