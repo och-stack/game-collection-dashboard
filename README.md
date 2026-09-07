@@ -1,4 +1,4 @@
-# Classic Replay
+# Loading Room
 This is a dashboard that showing the old school games for your modern laptop.
 
 ![alt text](loadingroom.png)
