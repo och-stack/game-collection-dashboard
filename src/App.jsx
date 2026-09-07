@@ -179,9 +179,10 @@ function AddGameForm({ games, setGames }) {
           <label className="col-4 col-form-label">Image</label>
           <div className="col-8">
             <input
-              type="file"
+              type="url"
               className="form-control"
-              accept="image/*"
+              placeholder="https://example.com/image.jpg"
+              value={image}
               onChange={(event) => setImage(event.target.value)}
             />
           </div>
