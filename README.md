@@ -1,7 +1,7 @@
 # Classic Replay
 This is a dashboard that showing the old school games for your modern laptop.
 
-![alt text](classicreplay.png)
+![alt text](loadingroom.png)
 Image 1: This is the image for the dashboard.
 
 # Features
@@ -12,3 +12,4 @@ Image 1: This is the image for the dashboard.
 # Learn
 - React
 - Components
+- Props
