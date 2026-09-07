@@ -249,7 +249,7 @@ function App() {
       description: "Test how quickly and accurately you can type.",
       category: "Speed",
       rating: 4.5,
-      image: "typingspeed.jpg",
+      image: "/typingspeed.jpg",
       url: "https://play.typeracer.com/"
     },
 
@@ -260,7 +260,7 @@ function App() {
       description: "Control the snake, collect food and grow as long as possible.",
       category: "Leisure",
       rating: 4.8,
-      image: "snake.png",
+      image: "/snake.png",
       url: "https://playsnake.org/"
     },
 
@@ -271,7 +271,7 @@ function App() {
       description: "Arrange falling blocks to create complete lines and score points.",
       category: "Brain",
       rating: 4.6,
-      image: "tetris.jpg",
+      image: "/tetris.jpg",
       url: "https://play.tetris.com/"
     }
   ]);
@@ -289,7 +289,7 @@ function App() {
   return (
     <>
       <header className="text-center mt-5 mb-4">
-        <img src="favi.png" alt="favicon" />
+        <img src="/favi.png" alt="favicon" />
         <h1 className="fw-bold">Loading Room</h1>
         <p className="text-secondary">Your next game is loading.</p>
       </header>
