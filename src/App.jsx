@@ -1,6 +1,6 @@
 // Import useState so we can store changing data
 // Import useEffect to run code after the component renders or when data changes
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 // GAME CARD
@@ -231,16 +231,6 @@ function AddGameForm({ games, setGames }) {
 // MAIN APP
 // Create the main App component
 function App() {
-  // Set website title and favicon
-  useEffect(() => {
-    document.title = "Loading Room";
-
-    const favicon = document.createElement("link");
-    favicon.rel = "icon";
-    favicon.href = "/favicon.png";
-    document.head.appendChild(favicon);
-  }, []);
-
   // Create the games state and store the initial games
   const [games, setGames] = useState([
     // Create the first game
